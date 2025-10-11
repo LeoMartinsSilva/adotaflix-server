@@ -1,5 +1,5 @@
 create table solicitacao_adocao(
-	id_solicitacao_adocao bigint primary key,
+	id_solicitacao_adocao bigserial primary key,
 	id_usuario bigint not null,
 	id_animal bigint not null,
 	dt_solicitacao timestamp not null,

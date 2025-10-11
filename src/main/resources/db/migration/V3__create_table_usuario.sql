@@ -1,9 +1,9 @@
 create table usuario(
-	id_usuario bigint primary key,
+	id_usuario bigserial primary key,
 	nm_usuario varchar(255) not null,
 	ds_email varchar(255) not null,
 	ds_senha text not null,
-	fl_role varchar(10),
+	fl_role varchar(10) not null,
 	id_instituicao bigint,
 	id_endereco bigint,
 	dt_cadastro timestamp,

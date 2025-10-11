@@ -1,5 +1,5 @@
 create table animal(
-	id_animal bigint primary key,
+	id_animal bigserial primary key,
 	nm_animal varchar(255) not null,
 	ds_animal text not null,
 	dt_nascimento timestamp,

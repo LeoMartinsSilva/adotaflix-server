@@ -12,14 +12,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name= "users")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario implements UserDetails {
 
 	@Id
@@ -38,6 +46,10 @@ public class Usuario implements UserDetails {
 	
 	@Column(name="fl_role")
 	private String role;
+	
+	@JoinColumn(name="id_endereco", referencedColumnName = "id_endereco")
+	@ManyToOne
+	private Endereco endereco;
 	
 	@Column(name="dt_cadastro")
 	private LocalDateTime dataCadastro;

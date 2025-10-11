@@ -1,5 +1,5 @@
 create table endereco(
-	id_endereco bigint primary key,
+	id_endereco bigserial primary key,
 	ds_cep varchar(20) not null,
 	ds_logradouro varchar(255) not null,
 	ds_numero integer,

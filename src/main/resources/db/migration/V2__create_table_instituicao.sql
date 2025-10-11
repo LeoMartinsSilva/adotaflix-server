@@ -1,5 +1,5 @@
 create table instituicao(
-	id_instituicao bigint primary key,
+	id_instituicao bigserial primary key,
 	nm_instituicao varchar(255) not null,
 	ds_documento varchar(18) not null,
 	id_endereco bigint,
