@@ -6,6 +6,7 @@ import br.com.adotaflix.server.dto.EnderecoDto;
 import br.com.adotaflix.server.mapper.EnderecoMapper;
 import br.com.adotaflix.server.model.Endereco;
 import br.com.adotaflix.server.repository.EnderecoRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class EnderecoService {
@@ -18,6 +19,7 @@ public class EnderecoService {
 		this.enderecoRepository = enderecoRepository;
 	}
 	
+	@Transactional
 	public Endereco registrar(EnderecoDto enderecoDto) {
 		Endereco endereco = enderecoMapper.toEntity(enderecoDto);
 		endereco = enderecoRepository.save(endereco);

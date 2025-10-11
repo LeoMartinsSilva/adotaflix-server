@@ -8,6 +8,7 @@ import br.com.adotaflix.server.dto.response.RegistrarUsuarioResponseDto;
 import br.com.adotaflix.server.mapper.EnderecoMapper;
 import br.com.adotaflix.server.model.Usuario;
 import br.com.adotaflix.server.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class UsuarioService {
@@ -24,6 +25,7 @@ public class UsuarioService {
 		this.enderecoService = enderecoService;
 	}
 	
+	@Transactional
 	public RegistrarUsuarioResponseDto registrar(RegistrarUsuarioRequestDto dados) {
 		Usuario usuario = Usuario.builder()
 				.nome(dados.getNome())
