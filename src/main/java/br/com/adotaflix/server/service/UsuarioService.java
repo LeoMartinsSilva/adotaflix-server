@@ -1,5 +1,7 @@
 package br.com.adotaflix.server.service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,7 @@ public class UsuarioService {
 				.senha(encoder.encode(dados.getSenha()))
 				.telefone(dados.getTelefone())
 				.endereco(enderecoService.registrar(dados.getEndereco()))
+				.dataCadastro(LocalDateTime.now())
 				.role("ROLE_USER")
 				.build();
 		

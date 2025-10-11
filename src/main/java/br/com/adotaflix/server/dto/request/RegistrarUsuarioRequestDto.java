@@ -1,6 +1,7 @@
 package br.com.adotaflix.server.dto.request;
 
 import br.com.adotaflix.server.dto.EnderecoDto;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -23,11 +24,12 @@ public class RegistrarUsuarioRequestDto {
 	private String senha;
 	
 	@NotNull(message = "O endereço é obrigatório")
+	@Valid
 	private EnderecoDto endereco;
 	
 	@Pattern(
-	        regexp = "^\\(?\\d{2}\\)?\\s?9?\\d{4}-?\\d{4}$",
-	        message = "Telefone inválido (use o formato (XX) XXXXX-XXXX ou XXXXXXXXXXX)"
+			regexp = "^\\+55\\s?\\(\\d{2}\\)\\s?(9\\d{4}|\\d{4})-\\d{4}$",
+	        message = "Telefone inválido (use o formato +55(XX) 9XXXXX-XXXX ou +55(XX) XXXX-XXXX)"
 	    )
 	private String telefone;
 }
