@@ -2,7 +2,7 @@ create table animal(
 	id_animal bigserial primary key,
 	nm_animal varchar(255) not null,
 	ds_animal text not null,
-	dt_nascimento timestamp,
+	dt_nascimento date,
 	id_raca bigint not null,
 	id_cor bigint not null,
 	id_instituicao bigint not null,
