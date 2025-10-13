@@ -38,7 +38,7 @@ public class SecurityFilter extends OncePerRequestFilter{
 			Optional<JWTUserData> optional = tokenConfig.validadeToken(token);
 			if(optional.isPresent()) {
 				JWTUserData userData = optional.get();
-				Usuario usuario = usuarioRepository.findById(userData.userId()).orElse(null);
+				Usuario usuario = usuarioRepository.findById(userData.userId()).orElseThrow(()->new RuntimeException("Usuário não encontrado"));
 				UsernamePasswordAuthenticationToken token1 = new UsernamePasswordAuthenticationToken(userData, userData.email(), List.of(new SimpleGrantedAuthority(usuario.getRole())));
 				SecurityContextHolder.getContext().setAuthentication(token1);
 			}
