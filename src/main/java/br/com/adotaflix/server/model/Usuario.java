@@ -51,6 +51,10 @@ public class Usuario implements UserDetails {
 	@ManyToOne
 	private Endereco endereco;
 	
+	@JoinColumn(name="id_instituicao", referencedColumnName = "id_instituicao")
+	@ManyToOne
+	private Instituicao instituicao;
+	
 	@Column(name="dt_cadastro")
 	private LocalDateTime dataCadastro;
 	
