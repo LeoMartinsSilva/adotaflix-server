@@ -15,4 +15,5 @@ public class InstituicaoDto {
 	private String telefone;
 	private String telefoneWhatsapp;
 	private EnderecoDto endereco;
+	private String imagem;
 }

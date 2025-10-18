@@ -64,7 +64,7 @@ public class SolicitacaoAdocaoService {
 	public SolicitacaoAdocaoDto solicitar(SolicitarAdocaoRequestDto dados) {
 		Usuario usuario = usuarioLogadoService.getUsuarioLogado();
 		
-		Animal animal = animalRepository.findById(dados.getIdAnimal()).orElseThrow(()-> new NotFoundException("Raça não encontrada"));
+		Animal animal = animalRepository.findById(dados.getIdAnimal()).orElseThrow(()-> new NotFoundException("Animal não encontrado"));
 		if(!animal.getStatus().equals("D")) {
 			throw new RuntimeException("Esse animal não está disponível para adoção");
 		}

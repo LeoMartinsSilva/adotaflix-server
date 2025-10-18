@@ -1,6 +1,7 @@
 package br.com.adotaflix.server.dto.response.animal;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import br.com.adotaflix.server.dto.response.InstituicaoDto;
 import lombok.Builder;
@@ -21,4 +22,5 @@ public class AnimalDto {
 	private String porte;
 	private String status;
 	private String sexo;
+	private List<String> imagens;
 }

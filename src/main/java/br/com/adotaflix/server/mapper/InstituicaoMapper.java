@@ -4,14 +4,17 @@ import org.springframework.stereotype.Component;
 
 import br.com.adotaflix.server.dto.response.InstituicaoDto;
 import br.com.adotaflix.server.model.Instituicao;
+import br.com.adotaflix.server.util.ImageUtil;
 
 @Component
 public class InstituicaoMapper extends AbstractMapper<InstituicaoDto, Instituicao> {
 
 	private final EnderecoMapper enderecoMapper;
+	private final ImageUtil imageUtil;
 	
-	public InstituicaoMapper(EnderecoMapper enderecoMapper) {
+	public InstituicaoMapper(EnderecoMapper enderecoMapper, ImageUtil imageUtil) {
 		this.enderecoMapper = enderecoMapper;
+		this.imageUtil = imageUtil;
 	}
 	
 	@Override
@@ -24,6 +27,7 @@ public class InstituicaoMapper extends AbstractMapper<InstituicaoDto, Instituica
 				.telefone(entity.getTelefone())
 				.telefoneWhatsapp(entity.getTelefoneWhatsapp())
 				.endereco(enderecoMapper.toDto(entity.getEndereco()))
+				.imagem(imageUtil.getImagem("/instituicao", entity.getId()))
 				.build();
 	}
 
