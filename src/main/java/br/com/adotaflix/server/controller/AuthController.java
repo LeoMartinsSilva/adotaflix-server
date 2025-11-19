@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.adotaflix.server.config.TokenConfig;
-import br.com.adotaflix.server.dto.request.loginRequest;
+import br.com.adotaflix.server.dto.request.LoginRequest;
 import br.com.adotaflix.server.dto.response.LoginResponse;
 import br.com.adotaflix.server.model.Usuario;
 import jakarta.validation.Valid;
@@ -29,7 +29,7 @@ public class AuthController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<LoginResponse> login(@Valid @RequestBody loginRequest login){
+	public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest login){
 		
 		UsernamePasswordAuthenticationToken userAndPass = new UsernamePasswordAuthenticationToken(login.email(), login.password());
 		Authentication auth = authenticationManager.authenticate(userAndPass);
